@@ -11,6 +11,9 @@ class User < ApplicationRecord
 
   enum grade: { grade1: 0, grade2: 1, grade3: 2,others: 3 }
 
+  mount_uploader :profile_image, ProfileImageUploader
+
+
   def update_without_current_password(params, *options)
 
     if params[:password].blank? && params[:password_confirmation].blank?
