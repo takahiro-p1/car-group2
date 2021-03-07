@@ -78,9 +78,9 @@ if (location.pathname == "/users") {
         type: "POST",
         datatype: "json",
         data: {
-          user_id: 1,
+
           carlist_id: carlist_id,
-          reaction: reaction,
+          status: reaction,
         }
       })
         .done(function () {
@@ -96,6 +96,11 @@ if (location.pathname == "/users") {
       let moveOutWidth = document.body.clientWidth * 2;
 
       let card = cards[0];
+
+      let user_id = card.id;
+
+      postReaction(user_id, reaction);
+
       card.classList.add('removed');
 
       if (reaction == "like") {
