@@ -1,0 +1,7 @@
+<% unless @match_groups.empty? %>
+  <ul>
+    <% @match_groups.each do |car| %>
+      <li><%= car.name %></li>
+    <% end %>
+  </ul>
+<% end %>
