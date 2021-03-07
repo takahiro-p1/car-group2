@@ -5,4 +5,6 @@ Rails.application.routes.draw do
     sessions: :sessions }
   root 'top#index'
   resources :users, only: [:show, :index]
+
+  resources :reactions, only: [:create]
 end
