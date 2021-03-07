@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    
+    @users = Carlist.all
+    @user = User.find(current_user.id)
   end
 end
