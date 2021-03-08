@@ -8,4 +8,5 @@ Rails.application.routes.draw do
 
   resources :reactions, only: [:create]
   resources :matching, only: [:index]
+  resources :chat_rooms, only: [:show]
 end
