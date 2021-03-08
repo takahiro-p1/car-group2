@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_07_073748) do
+ActiveRecord::Schema.define(version: 2021_03_08_045706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.bigint "carlist_id", null: false
+    t.bigint "from_user_id"
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carlist_id"], name: "index_actions_on_carlist_id"
+    t.index ["from_user_id"], name: "index_actions_on_from_user_id"
+  end
 
   create_table "carlists", force: :cascade do |t|
     t.string "name"
@@ -25,6 +35,25 @@ ActiveRecord::Schema.define(version: 2021_03_07_073748) do
     t.string "profile_image"
   end
 
+  create_table "chat_messages", force: :cascade do |t|
+    t.bigint "carlist_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carlist_id"], name: "index_chat_messages_on_carlist_id"
+    t.index ["user_id"], name: "index_chat_messages_on_user_id"
+  end
+
+  create_table "chat_rooms", force: :cascade do |t|
+    t.bigint "carlist_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["carlist_id"], name: "index_chat_rooms_on_carlist_id"
+    t.index ["user_id"], name: "index_chat_rooms_on_user_id"
+  end
+
   create_table "reactions", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "carlist_id", null: false
@@ -33,6 +62,16 @@ ActiveRecord::Schema.define(version: 2021_03_07_073748) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["carlist_id"], name: "index_reactions_on_carlist_id"
     t.index ["user_id"], name: "index_reactions_on_user_id"
+  end
+
+  create_table "reacts", force: :cascade do |t|
+    t.bigint "to_user_id", null: false
+    t.bigint "from_user_id", null: false
+    t.integer "status", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["from_user_id"], name: "index_reacts_on_from_user_id"
+    t.index ["to_user_id"], name: "index_reacts_on_to_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,6 +91,14 @@ ActiveRecord::Schema.define(version: 2021_03_07_073748) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "actions", "carlists"
+  add_foreign_key "actions", "users", column: "from_user_id"
+  add_foreign_key "chat_messages", "carlists"
+  add_foreign_key "chat_messages", "users"
+  add_foreign_key "chat_rooms", "carlists"
+  add_foreign_key "chat_rooms", "users"
   add_foreign_key "reactions", "carlists"
   add_foreign_key "reactions", "users"
+  add_foreign_key "reacts", "users", column: "from_user_id"
+  add_foreign_key "reacts", "users", column: "to_user_id"
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   
   has_many :reactions
+  has_many :chat_messages
   
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
