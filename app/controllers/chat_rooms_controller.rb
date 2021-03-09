@@ -8,5 +8,6 @@ class ChatRoomsController < ApplicationController
     @chat_room_user = Reaction.where(carlist: @carlist).where(status: 1)
 
     @chat_messages = ChatMessage.where(carlist: @carlist)
+    @user = User.find(current_user.id)
   end
 end
