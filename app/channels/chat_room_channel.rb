@@ -13,6 +13,5 @@ class ChatRoomChannel < ApplicationCable::Channel
       user_id: current_user.id,
       carlist_id: data['chat_room_id']
     )
-#    ActionCable.server.broadcast 'chat_room_channel', chat_message: data['chat_message']
   end
 end

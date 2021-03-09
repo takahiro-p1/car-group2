@@ -18,7 +18,6 @@ const appChatRoom = consumer.subscriptions.create("ChatRoomChannel", {
     return this.perform('speak', { chat_message: chat_message, chat_room_id: chat_room_id });
   }
 });
-
 if(/chat_rooms/.test(location.pathname)) {
   $(document).on("keydown", ".chat-room__message-form_textarea", function(e) {
     if (e.key === "Enter") {
