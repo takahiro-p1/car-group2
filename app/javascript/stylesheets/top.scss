@@ -42,6 +42,16 @@
   }
 }
 
+.top-qr {
+  position: absolute;
+  top: 90%;
+  left: 35%;
+  transform: translate(60%,-80%);
+}
+.qr-font{
+  font-weight: bold;
+}
+
 @media (max-width: 767px) {
   .navbar__sign-in-btn {
     display: none;
