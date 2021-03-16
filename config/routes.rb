@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     controllers: { registrations: 'registrations',
     sessions: :sessions }
   root 'top#index'
+  get 'show', to: 'top#show'
   post '/callback' => 'line_bot#callback'
   resources :users, only: [:show, :index]
 
