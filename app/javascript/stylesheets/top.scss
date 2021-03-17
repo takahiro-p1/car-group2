@@ -1,5 +1,6 @@
 .jumbotron {
-  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.05) ), url("~top.jpg") center no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.05)),
+    url("~top.jpg") center no-repeat;
   background-size: cover;
   height: 100vh;
   padding: 0;
@@ -7,7 +8,7 @@
 }
 
 .text-top-color {
-  color: #FD3378;
+  color: #fd3378;
   font-weight: 600;
   padding: 6px 24px;
 }
@@ -16,7 +17,7 @@
   position: absolute;
   top: 45%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   letter-spacing: 2px;
   white-space: nowrap;
 }
@@ -25,9 +26,9 @@
   position: absolute;
   top: 80%;
   left: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   &__sign-up-btn {
-    background: #FD3378;
+    background: #fd3378;
     border-radius: 30px;
     padding: 4px;
     white-space: nowrap;
@@ -44,16 +45,17 @@
 
 .top-qr {
   position: absolute;
-  top: 90%;
-  left: 35%;
-  transform: translate(60%,-80%);
+  top: 80%;
+  left: 85%;
+  transform: translate(-50%, -50%);
 }
-.qr-font{
+.qr-font {
   font-weight: bold;
 }
 
 @media (max-width: 767px) {
-  .navbar__sign-in-btn {
+  .navbar__sign-in-btn,
+  .top-qr {
     display: none;
   }
 }
@@ -63,5 +65,29 @@
     &__sign-in-btn {
       display: none;
     }
+  }
+}
+
+@media (max-width: 1067px) {
+  .display-max {
+    display: none;
+  }
+}
+
+@media (min-width: 1068px) {
+  .display-middle {
+    display: none;
+  }
+}
+
+@media (max-width: 650px) {
+  .display-middle {
+    display: none;
+  }
+}
+
+@media (min-width: 651px) {
+  .display-min {
+    display: none;
   }
 }

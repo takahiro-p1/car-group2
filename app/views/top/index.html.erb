@@ -4,7 +4,6 @@
       <a class="navbar-brand text-white">CarGroup Matching</a>
       <div class="navbar__sign-in-btn">
         <%= link_to "ログイン", new_user_session_path, class: "btn my-2  bg-light text-top-color" %>
-
       <div class="navbar__sign-in-btn">
         <%= link_to "CarGroup Machingとは？", show_path, class: "btn my-2 my-sm-0 bg-light" %>
       </div>
@@ -12,8 +11,14 @@
   </div>
 
   <div class="top-title">
-    <h1 class="text-white text-center">
+    <h1 class="text-white text-center display-max">
       さあ、あなたもグループ割を使って教習所へ安く通おう！
+    </h1>
+    <h1 class="text-white text-center display-middle">
+      さあ、あなたもグループ割を使って<br>教習所へ安く通おう！
+    </h1>
+    <h1 class="text-white text-center display-min">
+      さあ、あなたも<br>グループ割を使って<br>教習所へ安く通おう！
     </h1>
   </div>
 
@@ -24,10 +29,13 @@
     <div class="top-authentication__sign-in-btn m-3">
       <%= link_to "ログイン", new_user_session_path, class: "btn text-white" %>
     </div>
-    <div class="top-qr">
+    <div class="top-authentication__sign-in-btn m-5">
+      <%= link_to "CarGroup Machingとは？", show_path, class: "btn text-white" %>
+    </div>
+  </div>
+  <div class="top-qr">
       <p class="qr-font">ご意見は下記のQRコードから</p>
       <%= image_tag 'qr.png'%>
     </div>
-  </div>
 </div>
 
