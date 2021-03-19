@@ -3,9 +3,11 @@
     <%= link_to matching_index_path, class: "nav-item nav-link" do%>
       <i class="fas fa-chevron-left"></i>
     <% end %>
-
+      <%= @chat_room.name %>
+    
     <div class="chat-room__partner">
       <span class="chat-room__partner-name">
+        
         <%= @user.name %>
       </span>
 
@@ -16,12 +18,22 @@
       <% end %>
     </div>
   </nav>
-
-  <div id='chat-messages'>
-    <%= render @chat_messages %>
+  <div class="template">
+    <p>グループ内のメンバーと話し合いをして<br>申し込み日・入校日を決めましょう！</p>
   </div>
-
   <form class="chat-room__message-form">
-    <textarea data-behavior="chat_room_speaker" data-chat_room_id="<%= @chat_room.id %>" placeholder="メッセージを入力" class="chat-room__message-form_textarea"></textarea>
+    <textarea data-behavior="chat_room_speaker" data-chat_room_id="<%= @chat_room.id %>" placeholder=">メッセージを入力 (Enterで送信)<" class="chat-room__message-form_textarea"></textarea>
   </form>
+  <div class="all-chats">
+    <div id='chat-messages'>
+      <%= render @chat_messages %>
+    </div>
+      <% @mygroup_message.each do |aa| %>
+        <div class="chat-message__content green">
+          <div class="inline-block">
+            <%= aa.content %>
+          </div>
+        </div>
+        <% end %>
+  </div>
 </div>

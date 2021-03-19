@@ -9,5 +9,6 @@ class ChatRoomsController < ApplicationController
 
     @chat_messages = ChatMessage.where(carlist: @carlist)
     @user = User.find(current_user.id)
+    @mygroup_message = ChatMessage.where(params[:carlist_id]).order("id DESC")
   end
 end
