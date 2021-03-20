@@ -28,12 +28,15 @@
     <div id='chat-messages'>
       <%= render @chat_messages %>
     </div>
-      <% @mygroup_message.each do |aa| %>
+    <% @mygroup_message.each do |aa| %>
+      <div class="chat-message__other-user">
         <div class="chat-message__content green">
-          <div class="inline-block">
+          
             <%= aa.content %>
-          </div>
+          
         </div>
+      </div>
         <% end %>
+      
   </div>
 </div>

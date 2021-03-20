@@ -7,7 +7,9 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = Carlist.all
+    @carlists = Carlist.all
+    @already_not_swiped = Carlist.joins(:reaction)
+
     @user = User.find(current_user.id)
   end
 end

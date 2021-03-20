@@ -8,15 +8,18 @@
     </div>
 
     <div class="swipe--cards">
-      <% @users.each do |user| %>
-        <div class="swipe--card" id="<%= user.id %>">
-          <% if user.profile_image.url.nil? %>
+      <% @carlists.each do |carlist| %>
+        <div class="swipe--card" id="<%= carlist.id %>">
+          <% if carlist.profile_image.url.nil? %>
             <div class="profile-default-img"></div>
           <% else %>
-            <%= image_tag user.profile_image.url, class: "profile-img" %>
+            <%= image_tag carlist.profile_image.url, class: "profile-img" %>
           <% end %>
           <p class="profile-name">
-            <%= user.name %>
+            <%= carlist.name %>
+          </p>
+          <p class="profile-text">
+            <%= carlist.text %>
           </p>
         </div>
       <% end %>
