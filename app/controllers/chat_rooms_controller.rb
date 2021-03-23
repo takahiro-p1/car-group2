@@ -9,7 +9,8 @@ class ChatRoomsController < ApplicationController
 
     @chat_messages = ChatMessage.where(carlist: @carlist)
     @user = User.find(current_user.id)
-    @mygroup_message = ChatMessage.where(carlist_id: params[:id]).order("id DESC")
+    joins = ChatMessage.joins(:user)
+    @mygroup_messages = joins.where(carlist_id: params[:id]).order("id DESC")
     @current_people = Reaction.where(carlist_id: params[:id]).where(status: "like")
   end
 end

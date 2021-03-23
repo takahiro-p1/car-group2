@@ -3,19 +3,10 @@
     <%= link_to matching_index_path, class: "nav-item nav-link" do%>
       <i class="fas fa-chevron-left"></i>
     <% end %>
-      <%= @chat_room.name %>
-    
+    <span><%= @chat_room.name %>
+    (<%= @current_people.count %>) 人</span>
     <div class="chat-room__partner">
-      <span class="chat-room__partner-name">
-        
-        <%= @user.name %>
-      </span>
-
-      <% if @user.profile_image.nil? %>
-        <div class="chat-room__partner-default-img"></div>
-      <% else %>
-        <%= image_tag @user.profile_image.url, class: "chat-room__partner-img" %>
-      <% end %>
+        <%= image_tag @chat_room.profile_image.url, class: "chat-room__partner-img" %>
     </div>
   </nav>
   <div class="template">
@@ -28,15 +19,21 @@
     <div id='chat-messages'>
       <%= render @chat_messages %>
     </div>
-    <% @mygroup_message.each do |aa| %>
+    <% @mygroup_messages.each do |message| %>
       <div class="chat-message__other-user">
+        <% if message.user.profile_image.nil? %>
+          <div class="chat-room__partner-default-img">
+          </div>
+        <% else %>
+          <%= image_tag message.user.profile_image.url, class: "chat-room__partner-img" %>
+        <% end %>
+        <span class="chat-room__partner-name">
+         <%= message.user.name %>
+      </span>
         <div class="chat-message__content green">
-          
-            <%= aa.content %>
-          
+           <%= message.content %>     
         </div>
       </div>
-        <% end %>
-      
+    <% end %>
   </div>
 </div>
