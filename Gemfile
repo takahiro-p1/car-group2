@@ -48,6 +48,8 @@ group :development, :test do
   gem 'rspec-rails'
 
   gem 'factory_bot_rails'
+
+  gem "mimemagic", "~> 0.3.6"
 end
 
 group :development do
