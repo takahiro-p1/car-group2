@@ -10,7 +10,6 @@ https://www.ritsco-op.jp/shopinformation/2021/02/bkc3_2.html
 
 
 
-
-２０２１/3/30追記
+>２０２１/3/30追記
 度々sassが反映されない場合がございます。
 bin/webpack-dev-serverコマンドにてコンパイルした結果にエラーが表示されているかご確認をお願いします。
