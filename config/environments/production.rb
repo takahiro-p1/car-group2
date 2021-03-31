@@ -118,7 +118,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
   config.paperclip_defaults = {
-    +    storage: :s3,
+    +    storage: 's3',
     +    preserve_files: true,
     +    s3_host_name: 's3-ap-northeast-1.amazonaws.com',
     +    s3_credentials: {
