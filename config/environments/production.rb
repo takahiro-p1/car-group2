@@ -126,6 +126,6 @@ Rails.application.configure do
       secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'],
       s3_region: 'ap-northeast-1'
     },
-    bucket: 'cargroup1'
+    bucket: 'cargroup2'
   }
 end
