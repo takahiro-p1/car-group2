@@ -15,5 +15,5 @@ Carlist.create!(
   name: 'アヤハ自動車教習所(5月入校)',
   text: '草津駅側で下宿されている方にオススメ！',
   period: 501515,
-  profile_image: open("#{Rails.root}/db/dummy_images/ayaha.jpeg")
+  profile_image: open("#{Rails.root}/app/assets/images/ayaha.jpeg")
 )
